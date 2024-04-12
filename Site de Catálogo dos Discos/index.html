@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Discos de Vinil</title>
+<link rel="stylesheet" type="text/css" href="C:\Users\USER\Desktop\-\Faculdade\Projetos\Site de Catálogo dos Discos\styles.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Catalagos</a></li>
+        <li><a href="#">Clientes</a></li>
+        <li><a href="#">Contato</a></li>
+
+    </ul>
+</nav>
+
+   
+<h1>Catálogo de Discos de Vinil</h1>
+
+<!-- Formulário para adicionar um novo disco -->
+<form id="addRecordForm">
+    <label for="title">Título:</label>
+    <input type="text" id="title" name="title" required><br>
+    <label for="artist">Artista:</label>
+    <input type="text" id="artist" name="artist" required><br>
+    <label for="year">Ano:</label>
+    <input type="number" id="year" name="year" required><br>
+    <label for="image">Imagem:</label>
+    <input type="file" id="image" name="image" accept="image/*" required><br>
+    <label for="songs">Músicas:</label>
+    <textarea id="songs" name="songs" rows="4" cols="50" placeholder="Insira as músicas, uma por linha"></textarea><br>
+    <button type="submit">Adicionar Disco</button>
+</form>
+
+<hr>
+
+<!-- Destaques, só uma ideia que tive, eu achei que ficou bom na página -->
+<section id="destaque">
+    <h2>Discos em Destaque</h2>
+    <div class="recordItem">
+        <img src="Exemplo.jpeg" alt="Disco em Destaque 1">
+        <div class="recordInfo">
+            <strong>Título:</strong> Eu gosto do Mar<br>
+            <strong>Artista:</strong> Roberto Carlos<br>
+            <strong>Ano:</strong> 2022<br>
+        </div>
+    </div>
+    <div class="recordItem">
+        <img src="Exemplo.jpeg" alt="Disco em Destaque 2">
+        <div class="recordInfo">
+            <strong>Título:</strong> Romance<br>
+            <strong>Artista:</strong> Humberto & Ronaldo<br>
+            <strong>Ano:</strong> 2004<br>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<!-- Pesquisa de discos -->
+<section id="pesquisa">
+    <h2>Pesquisar Discos</h2>
+    <input type="text" id="searchInput" placeholder="Digite o título ou o nome do artista">
+    <button type="button" onclick="pesquisarDiscos()">Pesquisar</button>
+    <ul id="searchResults">
+        <!-- Javascript na mais pura essência -->
+    </ul>
+</section>
+
+<hr>
+
+<!-- Lista de discos existentes -->
+<ul id="recordList">
+<!-- Inserção dos discos, JS puro -->
+</ul>
+
+<footer>
+    <p>&copy; 2024 Catálogo de Discos de Vinil. Todos os direitos reservados.</p>
+</footer>
+
+<script src="C:\Users\USER\Desktop\-\Faculdade\Projetos\Site de Catálogo dos Discos\js\scripts.js"></script>
+
+</body>
+</html>
+
+<!-- O arquivo em java era só um teste que estava fazendo com a edição de discos, como não é minha parte só usei o chat nele, mas achei bom deixar vai que da alguma ideia
+     O arquivo em css também, o que pode ter nele de importante é uma configuração que faz com que os discos sejam inseridos na horizontal na lista em vez de na vertical como padrão
+     A parte de HTML eu fiz vendo tutoriais e de resto completava com o chat o que eu não tinha certeza, ela é bem pequena então foi tranquilo até. -->
