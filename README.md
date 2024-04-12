@@ -1,1 +1,2 @@
-# Projeto-dos-Discos-do-Ig-o
+# Projeto-dos-Discos-do-Igao
+Feito em VScode
