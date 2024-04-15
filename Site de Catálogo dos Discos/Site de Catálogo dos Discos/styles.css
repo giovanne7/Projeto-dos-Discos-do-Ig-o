@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap'); /* fonte normal */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400..900&display=swap'); /* fonte italico */ 
+
+body {
+    background-image: url('Fundo6.png');
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    padding: 1rem;
+
+}
+
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#menuHorizontal {
+    background-color: #302f2f;
+}
+
+#menuHorizontal ul {
+    max-width: 300px;
+    list-style: none;
+    padding: 0;
+    background-color: #302f2f;
+}
+
+#menuHorizontal ul li {
+    display: inline;
+}
+
+#menuHorizontal ul li a {
+    display: inline-block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#menuHorizontal ul li a:hover {
+    color: #f1edb0;
+}
+
+#destaque {
+    margin: 20px;
+    display: flex; /* Adicionado para organizar os discos na horizontal */
+    flex-wrap: wrap; /* Adicionado para quebrar linha quando não houver mais espaço */
+    justify-content: space-around; /* Adicionado para distribuir os discos igualmente na linha */
+}
+
+.destaqueq{
+    margin: 20px;
+    display: flex; /* Adicionado para organizar os discos na horizontal */
+    flex-wrap: wrap; /* Adicionado para quebrar linha quando não houver mais espaço */
+    justify-content: space-around; /* Adicionado para distribuir os discos igualmente na linha */
+
+
+}
+
+.recordItem {
+    background-color: black;
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 1px 2px 15px #bdbcbcf8;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    
+}
+
+.recordItem img {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.459);
+
+    
+
+}
+
+.recordItem .recordInfo {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 35px;
+    margin-bottom: 55px;
+}
+
+.text-color{
+    color: white;
+}
+
+.fonteCaixa {
+    font-size: 15px;
+    display: flex;
+    justify-content: left;
+}
+
+.botao{
+    border: solid 1px rgb(1, 1, 1);
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+.botao:hover{
+    background-color: rgb(4, 4, 4);
+    color: white;
+    transform: scale(1.2)
+}
+
+.centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.jersey-20-regular {
+    font-family: "Jersey 20", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 150px;
+  }
+
+.multicor {
+    background: linear-gradient(to right, #3311cb, #b51e9e, #2411cb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+}
+
+    *{
+    font-family: Helvetica;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    }
+    
+    
+    h1 {
+      margin-bottom: 1rem;
+    }
+    
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #888;
+      color: #fff;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      opacity: 0.9;
+      font-size: 1rem;
+    }
+    
+    #open-modal {
+      background-color: black;
+    }
+    
+    button:hover {
+      opacity: 1;
+    }
+    
+    #fade {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 5;
+    }
+    
+    #modal {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      max-width: 90%;
+      background-color: #fff;
+      padding: 1.2rem;
+      border-radius: 0.5rem;
+      z-index: 10;
+    }
+    
+    #fade,
+    #modal {
+      transition: 0.5s;
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+    
+    .modal-body p {
+      margin-bottom: 1rem;
+    }
+    
+    #modal.hide,
+    #fade.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    #modal.hide {
+      top: 0;
+    }
+
+    .espacamento1{
+        display: flex;
+        padding-left: 50px;
+        padding-right: 50px;
+        justify-content: center;
+    }
+
+.n-lista{
+    list-style-type: decimal;
+}
