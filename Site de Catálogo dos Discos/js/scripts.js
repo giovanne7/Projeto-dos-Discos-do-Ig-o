@@ -1,97 +1,124 @@
-/* 
+let openModalButton = document.querySelector("#open-modal");
+let closeModalButton = document.querySelector("#close-modal");
+let modal = document.querySelector("#modal");
+let fade = document.querySelector("#fade");
 
-Aqui só tem algumas funções que eu estava testando, deixei porque vai que encontram algo de útil aqui
+let toggleModal = () => {
+  modal.classList.toggle("hide");
+  fade.classList.toggle("hide");
+};
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Simulação de um banco de dados de discos
-    let discos = [];
-
-    const addRecordForm = document.getElementById('addRecordForm');
-    const recordList = document.getElementById('recordList');
-
-    // Função para adicionar um novo disco
-    function adicionarDisco(evento) {
-        evento.preventDefault();
-        const titulo = document.getElementById('title').value;
-        const artista = document.getElementById('artist').value;
-        const ano = document.getElementById('year').value;
-        const imagem = document.getElementById('image').files[0];
-        const musicas = document.getElementById('songs').value.split('\n').map(musica => musica.trim());
-
-        // Simulação de um objeto de disco
-        const disco = { titulo, artista, ano, imagem, musicas };
-        discos.push(disco);
-
-        // Atualiza a lista de discos na página
-        atualizarListaDeDiscos();
-
-        // Limpa o formulário
-        addRecordForm.reset();
-    }
-
-    // Função para atualizar a lista de discos na página
-    function atualizarListaDeDiscos() {
-        recordList.innerHTML = '';
-        discos.forEach((disco, indice) => {
-            const itemDeLista = criarItemDeLista(disco, indice);
-            recordList.appendChild(itemDeLista);
-        });
-    }
-
-    // Função para criar um item de lista de disco
-    function criarItemDeLista(disco, indice) {
-        const itemDeLista = document.createElement('li');
-        itemDeLista.classList.add('recordItem');
-
-        const conteudo = `
-            <div>
-                <img src="${URL.createObjectURL(disco.imagem)}" alt="${disco.titulo}">
-                <div class="recordInfo">
-                    <strong>Título:</strong> ${disco.titulo}<br>
-                    <strong>Artista:</strong> ${disco.artista}<br>
-                    <strong>Ano:</strong> ${disco.ano}<br>
-                    <strong>Músicas:</strong><br>
-                    <ul>
-                        ${disco.musicas.map(musica => `<li>${musica}</li>`).join('')}
-                    </ul>
-                </div>
-                <div>
-                    <button onclick="editarDisco(${indice})">Editar</button>
-                    <button onclick="excluirDisco(${indice})">Excluir</button>
-                </div>
-            </div>
-        `;
-
-        itemDeLista.innerHTML = conteudo;
-        return itemDeLista;
-    }
-
-    // Função para editar um disco existente
-    function editarDisco(indice) {
-        const novoTitulo = prompt("Novo Título:", discos[indice].titulo);
-        const novoArtista = prompt("Novo Artista:", discos[indice].artista);
-        const novoAno = prompt("Novo Ano:", discos[indice].ano);
-
-        if (novoTitulo && novoArtista && novoAno) {
-            discos[indice].titulo = novoTitulo;
-            discos[indice].artista = novoArtista;
-            discos[indice].ano = novoAno;
-            atualizarListaDeDiscos();
-        }
-    }
-
-    // Função para excluir um disco
-    function excluirDisco(indice) {
-        discos.splice(indice, 1);
-        atualizarListaDeDiscos();
-    }
-
-    // Adiciona um listener de evento para o formulário de adicionar disco
-    addRecordForm.addEventListener('submit', adicionarDisco);
-
-    // Inicializa a lista de discos na página
-    atualizarListaDeDiscos();
+[openModalButton, closeModalButton, fade].forEach((el) => {
+  el.addEventListener("click", () => toggleModal());
 });
 
 
-*/
+
+
+
+
+let listaDeDisco = [];
+let indiceEdicao = -1;
+
+
+
+function limpaCampos(){
+    document.getElementById('title').value = '';
+    document.getElementById('artist').value = '';
+    document.getElementById('year').value = '';
+    document.getElementById('image').value = '';
+    document.getElementById('songs').value = '';
+}
+
+function adicionarDisco() {
+    let titulo = document.getElementById('title').value;
+    let artista = document.getElementById('artist').value;
+    let ano = document.getElementById('year').value;
+    let imagem = document.getElementById('image').files[0];
+    let musicas = document.getElementById('songs').value.split('\n').map(musica => musica.trim());
+
+    if(indiceEdicao >= 0){
+        let disco = listaDeDisco[indiceEdicao];
+        disco.titulo = titulo;
+        disco.artista = artista;
+        disco.ano = ano;
+
+        if (imagem) {
+            disco.imagem = imagem;
+        }
+        disco.musicas = musicas;
+    }else{
+        listaDeDisco.push(
+            {'titulo': titulo, 'artista': artista, 'ano': ano, 'imagem': imagem, 'musicas': musicas}
+        );
+    }
+
+    limpaCampos();
+    atualizarListaDeDiscos();
+
+    indiceEdicao = -1;
+}
+
+function editarDisco(indice){
+    indiceEdicao = indice;
+    let disco = listaDeDisco[indice];
+
+    document.getElementById('title').value = disco.titulo;
+    document.getElementById('artist').value = disco.artista;
+    document.getElementById('year').value = disco.ano;
+    document.getElementById('songs').value = disco.musicas.join('\n');
+
+    toggleModal();
+
+}
+
+function excluirDisco(indice) {
+    let disco = listaDeDisco[indice];
+
+    if (confirm(`Tem certeza que deseja excluir o item ${disco.titulo}`)) {
+        listaDeDisco.splice(indice, 1);
+        atualizarListaDeDiscos();
+    }
+}
+
+function atualizarListaDeDiscos() {
+    recordList.innerHTML = '';
+
+    listaDeDisco.forEach((disco, indice) => {
+        let section = document.createElement('section');
+
+        section.innerHTML = `
+        <div class="recordItem vinilCaixa  text-color n-lista">
+            <img src="${URL.createObjectURL(disco.imagem)}" alt="${disco.titulo}">
+            <strong>Título: </strong>${disco.titulo} <br>
+            <strong>Artista: </strong>${disco.artista} <br>
+            <strong>Ano: </strong>${disco.ano} <br>
+            <h4>
+                ${disco.musicas.map(musica => `<li>${musica}</li>`).join('')}
+            </h4>
+            <td>
+                <button class="editButton botao poppins-light"
+                    type="button"
+                    onclick="editarDisco(${indice})"
+                    class="editButton">Editar
+                </button>
+
+                <button class="editButton botao poppins-light"
+                    type="button"
+                    onclick="excluirDisco(${indice})"
+                    class="deletButton">Deletar
+                </button>
+            </td>
+        </div>        
+        `;
+
+        recordList.appendChild(section);
+    });
+
+    
+
+
+
+
+
+}

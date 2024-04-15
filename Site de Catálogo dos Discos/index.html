@@ -3,52 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catálogo de Discos de Vinil</title>
-<link rel="stylesheet" type="text/css" href="C:\Users\USER\Desktop\-\Faculdade\Projetos\Site de Catálogo dos Discos\styles.css">
+<title class="centro jersey-20-regular multicor">Catálogo de Discos de Vinil</title>
+<style>
+    img{
+        width: 15%;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<nav>
-    <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Serviços</a></li>
-        <li><a href="#">Produtos</a></li>
-        <li><a href="#">Catalagos</a></li>
-        <li><a href="#">Contato</a></li>
-
-    </ul>
-</nav>
-
-   
-<h1>Catálogo de Discos de Vinil</h1>
-
-<!-- Formulário para adicionar um novo disco -->
-<form id="addRecordForm">
-    <label for="title">Título:</label>
-    <input type="text" id="title" name="title" required><br>
-    <label for="artist">Artista:</label>
-    <input type="text" id="artist" name="artist" required><br>
-    <label for="year">Ano:</label>
-    <input type="number" id="year" name="year" required><br>
-    <label for="image">Imagem:</label>
-    <input type="file" id="image" name="image" accept="image/*" required><br>
-    <label for="songs">Músicas:</label>
-    <textarea id="songs" name="songs" rows="4" cols="50" placeholder="Insira as músicas, uma por linha"></textarea><br>
-    <button type="submit">Adicionar Disco</button>
-</form>
-
+    <h1></h1>
+    <button id="open-modal" class="centro">Inserir Disco</button>
+    <div id="fade" class="hide"></div>
+    <div id="modal" class="hide">
+      <div class="modal-header">
+        <h2>Insira o Disco</h2>
+        <button id="close-modal">Fechar</button>
+      </div>
+      <div class="modal-body">
+        <form id="addRecordForm">
+          <label for="title">Título:</label>
+          <input type="text" id="title" name="title" required><br>
+          <label for="artist">Artista:</label>
+          <input type="text" id="artist" name="artist" required><br>
+          <label for="year">Ano:</label>
+          <input type="number" id="year" name="year" required><br>
+          <label for="image">Imagem:</label>
+          <input type="file" id="image" name="image" accept="image/*" required><br>
+          <label for="songs">Músicas:</label>
+          <textarea id="songs" name="songs" rows="4" cols="50" placeholder="Insira as músicas, uma por linha"></textarea><br>
+          <button type="button" onclick="adicionarDisco()">Adicionar Disco</button>
+        </form>
+      </div>
+    </div>
 <hr>
 
 <!-- Destaques, só uma ideia que tive, eu achei que ficou bom na página -->
+
+<h2 class="centro jersey-20-regular multicor">Discos em Destaque</h2>
 <section id="destaque">
-    <h2>Discos em Destaque</h2>
+    
+
     <div class="recordItem">
         <img src="Pink Floyd.png" alt="Disco em Destaque 1">
-        <div class="recordInfo">
+        <div class="recordInfo text-color">
             <strong>Título:</strong>  The Dark Side Of The Moon (50th Anniversary) (180 Gram Vinyl, Sticker, Anniversary Edition, Remastered, Gatefold LP Jacket)<br>
             <strong>Artista:</strong> Pink Floyd<br>
             <strong>Ano:</strong> 2023<br>
-            <h4>1.Speak to Me/Breathe<br>
+            <h4>to Me/Breathe<br>
                 2.On the Run<br>
                 3.Time<br>
                 4.The Great Gig in the Sky<br>
@@ -58,13 +63,12 @@
                 8.Brain Damage<br>
                 9.Eclipse<br>
                 10.Comfortably Numb</h4> 
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+      
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="The Strokes.png" alt="Disco em Destaque 2">
-        <div class="recordInfo">
+        <div class="recordInfo text-colo">
             <strong>Título:</strong>  Is This It<br>
             <strong>Artista:</strong> The Strokes<br>
             <strong>Ano:</strong> 2001<br>
@@ -78,13 +82,12 @@
                 8.Hard to Explain<br>
                 9.When It Started<br>
                 10.Take It or Leave It</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+           
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Linkin Park.png" alt="Disco em Destaque 3">
-        <div class="recordInfo">
+        <div class="recordInfo text-colo">
             <strong>Título:</strong>  Hybrid Theory<br>
             <strong>Artista:</strong> Linkin Park<br>
             <strong>Ano:</strong> 1999<br>
@@ -98,15 +101,14 @@
                 8.In the End<br>
                 9.A Place for My Head<br>
                 10.Forgotten</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+            
         </div>
     </div>
 </section>
+<h2 class="centro jersey-20-regular multicor">Discos</h2>
 
-<section id="destaque">
-    <h2>Discos</h2>
-    <div class="recordItem">
+<section id="destaque" id="discos" class="espacamento1">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Daft Punk.png" alt="Disco 1">
         <div class="recordInfo">
             <strong>Título:</strong>  Random Access Memories<br>
@@ -122,11 +124,10 @@
                 8.Get Lucky (feat. Pharrell Williams)<br>
                 9.Beyond<br>
                 10.Fragments of Time (feat. Todd Edwards)</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+            
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Michael Jakson.png" alt="Disco 2">
         <div class="recordInfo">
             <strong>Título:</strong> Thriller <br>
@@ -142,11 +143,10 @@
                 8.P.Y.T. (Pretty Young Thing)<br>
                 9.The Lady in My Life<br>
                 10.Thriller (Instrumental Version)</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Bob Marley.png" alt="Disco 3">
         <div class="recordInfo">
             <strong>Título:</strong> Legend [Special Edition]<br>
@@ -162,11 +162,10 @@
                 8.One Love/People Get Ready<br>
                 9.I Shot the Sheriff<br>
                 10.Redemption Song</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+               
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Tim maia.png" alt="Disco 4">
         <div class="recordInfo">
             <strong>Título:</strong> Tim Maia, Tim Maia - 1970 - Série Clássicos Em Vinil<br>
@@ -182,11 +181,10 @@
                 8.Preciso Aprender a Ser Só<br>
                 9.Gostava Tanto de Você<br>
                 10.Primavera (Vai Chuva) [Reprise]</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+       
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Jorge Ben.png" alt="Disco 5">
         <div class="recordInfo">
             <strong>Título:</strong> Jorge Ben, LP África Brasil - Série Clássicos Em Vinil<br>
@@ -202,11 +200,10 @@
                 8.Cavaleiro Do Cavalo Imaculado<br>
                 9.Menina Mulher da Pele Preta<br>
                 10.A História de Jorge</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+          
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Zumbi.png" alt="Disco 6">
         <div class="recordInfo">
             <strong>Título:</strong> Da Lama ao Caos - Série Clássicos em Vinil<br>
@@ -222,11 +219,10 @@
                 8.Meu Maracatu Pesa Uma Tonelada<br>
                 9.Samba Makossa<br>
                 10.Criança de Domingo</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+    
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Amy.png" alt="Disco 7">
         <div class="recordInfo">
             <strong>Título:</strong> Back To Black<br>
@@ -242,11 +238,10 @@
                 8.Just Friends<br>
                 9.Valerie<br>
                 10.He Can Only Hold Her</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+       
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa text-color">
         <img src="Nirvana.png" alt="Disco 8">
         <div class="recordInfo">
             <strong>Título:</strong> Nevermind<br>
@@ -262,11 +257,10 @@
                 8.Lounge Act<br>
                 9.Stay Away<br>
                 10.Something in the Way</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+ 
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Toxy.png" alt="Disco 9">
         <div class="recordInfo">
             <strong>Título:</strong> Toxicity<br>
@@ -282,11 +276,10 @@
                 8.Bounce<br>
                 9.Forest<br>
                 10.Shimmy</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+  
         </div>
     </div>
-    <div class="recordItem">
+    <div class="recordItem vinilCaixa  text-color">
         <img src="Charlie.png" alt="Disco 10">
         <div class="recordInfo">
             <strong>Título:</strong> Vinil Charlie Brown Jr. - 100% Charlie Brown Jr - Abalando A Sua Fábrica (vermelho)<br>
@@ -302,36 +295,34 @@
                 8.Dias de Luta, Dias de Glória<br>
                 9.Lugar ao Sol<br>
                 10.Zóio de Lula</h4>
-            <button class="editButton">Editar</button>
-            <button class="deleteButton">Excluir</button>
+           
         </div>
     </div>
 </section>
 
 <hr>
 
-<!-- Pesquisa de discos -->
-<section id="pesquisa">
-    <h2>Pesquisar Discos</h2>
-    <input type="text" id="searchInput" placeholder="Digite o título ou o nome do artista">
-    <button type="button" onclick="pesquisarDiscos()">Pesquisar</button>
-    <ul id="searchResults">
-        <!-- Javascript na mais pura essência -->
-    </ul>
-</section>
+<!-- Lista de discos existentes -->
+    <section>
+        <h2 class="centro jersey-20-regular multicor">Discos Novos</h2>
+        <div id="recordList"
+        class = "destaqueq vinilCaixa">
+            <!-- é aqui q aparece os discos inseridos pelo usuario ASS:Pedro Paulo-->
+        </div>
+    <!-- Inserção dos discos, JS puro -->
+    </section>
 
 <hr>
 
-<!-- Lista de discos existentes -->
-<ul id="recordList">
-<!-- Inserção dos discos, JS puro -->
-</ul>
 
 <footer>
     <p>&copy; 2024 Catálogo de Discos de Vinil. Todos os direitos reservados.</p>
 </footer>
 
-<script src="C:\Users\USER\Desktop\-\Faculdade\Projetos\Site de Catálogo dos Discos\js\scripts.js"></script>
+
+<script src="js/scripts.js"></script>
+
+
 
 </body>
 </html>
